@@ -1,0 +1,9 @@
+<div class="slideshow" data-showduration="3s" data-fadeduration="1s">
+{% for image in page.images %}
+  {% if forloop.last %}
+    <img src="{{ image }}" />
+  {% else %}
+    <img data-slidesrc="{{ image }}" />
+  {% endif %}
+{% endfor %}
+</div>

@@ -1,0 +1,298 @@
+@import url('/webfonts/MyFontsWebfontsKit.css');
+@import url('//fonts.googleapis.com/css?family=Montserrat:400,700');
+
+body {
+  background-color:black;
+  color:#FDFCD9;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration:none;
+  color:#C41130;
+}
+
+#container {
+  display:block;
+  width:940px;
+  margin-right:auto;
+  margin-left:auto;
+}
+
+/* Header */
+
+#header {
+  height:100px;
+}
+
+#header .social ul {
+  padding:0;
+  margin:0;
+}
+
+#header .left {
+  display:block;
+  float:left;
+  margin-top:50px;
+}
+
+#logo {
+  text-align:center;
+  width:545px;
+  float:left;
+}
+
+#logo img {
+  width: 200px;
+  position: absolute;
+  margin-left: 100px;
+}
+
+#header .right .social {
+  display: block;
+  float: left;
+  margin-top: 50px;
+  margin-left: 689px;
+}
+
+#header .social li{
+  list-style-type:none;
+  display:inline;
+}
+
+/* Banner */
+
+#banner {
+  height:200px;
+  overflow:hidden;
+  border-radius:5px;
+}
+
+#banner img {
+  width:100%;
+}
+
+/* Navigation */
+
+#navigation {
+  display:block;
+  width:100%;
+}
+
+#navigation ul {
+  text-align:center;
+  border-bottom:1px solid #595A5B;
+}
+
+#navigation li {
+  display:inline-block;
+  text-align:center;
+  padding-bottom:12px;
+}
+
+#navigation li:last-child {
+  border-right:0;
+}
+
+#navigation li a:hover {
+  color:#FDFCD9;
+}
+
+a.featurelink:hover {
+  color:#FDFCD9;
+}
+
+#navigation a {
+  padding-left:50px;
+  padding-right:50px;
+  padding-bottom:10px;
+  padding-top:10px;
+}
+
+/* content */
+
+h1 {
+  color:#C41130;
+  padding:0;
+  margin:0;
+  margin-bottom:15px;
+  font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
+}
+
+#col1 {
+  display:inline-block;
+  vertical-align:top;
+  padding-right:15px;
+  width:300px;
+  min-height:328px;
+  text-transform:uppercase;
+  font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
+  border-right:1px solid #595A5B; 
+}
+
+#col2 {
+  display:inline-block;
+  vertical-align:top;
+  width:618px;
+}
+
+#col2 img {
+  margin-left:20px;
+  height:239px;
+}
+
+#col2 h1 {
+  padding-left:20px;
+}
+
+#address, #hours {
+  padding-bottom:12px;
+  padding-left:20px;
+  float:left;
+}
+
+#hours {
+  margin-left:90px;
+}
+
+hr {
+  border:none;
+  border-top: 1px solid #595A5B;
+}
+
+/* Google Calender Events */
+
+.event {
+    display:block;
+    padding:5px;
+    height:100%;
+    vertical-align:top;
+    font-weight:400;
+}
+
+.event-title {
+    font-weight:normal;
+    text-transform:uppercase;
+    float:left;
+    color:#C41130;
+    font-size:14pt;
+    font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
+    letter-spacing:1px;
+}
+
+.event-date {
+  clear:both;
+}
+
+.event-content {
+    padding-left:15px;
+    clear:both;
+}
+
+.event:first-child {
+    border:1px solid #595A5B;
+}
+
+#col1 .event:first-child {
+  border:none;
+}
+
+/* menu */
+
+img.fullwidth {
+  width:100%;
+}
+
+.feature {
+  color:#C41130;
+  font-size:12pt;
+  margin-bottom:15px;
+  border-bottom:1px solid #595A5B;
+  padding-bottom:15px;
+}
+
+/* sideimage slideshow */
+
+h2 {
+  padding:0;
+  margin:0;
+  display:inline;
+  font-size:18pt;
+  font-style:italic;
+  letter-spacing:1px;
+  font-weight:normal;
+  font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
+}
+
+.cal-links {
+  margin-left:18px;
+}
+
+a.cal-links:hover {
+  color:#FDFCD9;
+}
+
+.right #gcal-events {
+  margin-top:12px;
+  width:540px;
+  float:right;
+}
+
+div.slideshow {
+  width:380px;
+  height:500px;
+  overflow:hidden;
+  float:left;
+  position:relative;
+  left:0;
+  margin-bottom:16px;
+}
+
+div.slideshow img {
+  width:380px;
+  position:absolute;
+}
+
+.right p, .right img {
+  width:540px;
+  float:right;
+  padding-top:0;
+  margin-top:0;
+}
+
+div.staticimg {
+  float:right;
+  position:relative;
+  overflow:hidden;
+  height:280px;
+}
+
+@-moz-document url-prefix() {
+  div.staticimg {
+    height:268px;
+  }
+}
+
+.right h1 {
+  margin-left:400px;
+}
+
+/* footer */
+
+#footer {
+  border-top:1px solid #595A5B;
+  padding-top:15px;
+  padding-bottom:15px;
+  margin-top:12px;
+  clear:both;
+}
+
+#right-credit {
+  float:right;
+  width:774px;
+  padding-bottom:50px;
+}
+
+#right-credit {
+  text-align:right;
+}

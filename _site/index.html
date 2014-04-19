@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  
+  <meta name="description" content="Caffe Frascati is like a little taste of Italy right in the heart of downtown San Jose. We want to bring you the best cappuccino outside of Rome and the tasty panini you can enjoy in the villages that dot the Umbrian countryside. And, to make things better, we're just around the corner. Come and sip one of our famous cappuccinos, try one of our tasty paninis, experience some live music, or just enjoy happy hour with friends after a long day at work. Cappuccino, Musica, Birra e Vino. BRAVO!">
+  
+  
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <link rel="stylesheet" type="text/css" href="/webfonts/slabtext.css">  
+  <link rel="stylesheet" type="text/css" href="/webfonts/socicon.css">
+    
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  
+  
+  
+
+  <!-- <script type="text/javascript" src="/js/bigtext.js"></script> -->
+  <script type="text/javascript" src="/js/jquery.slabtext.js"></script>
+  
+  <title>Caffe Frascati</title>
+  
+</head>
+
+<body>
+  <div id="container">
+    <div id="header">
+  
+  <div id="logo">
+    <img src="../images/logo.gif" alt="caffe frascati logo"/>
+  </div>
+  
+  <div class="right">
+    <!-- Social icons from http://socicon.com/ -->
+<div class="social">
+  <ul>
+    <li><a title="Facebook" href="https://www.facebook.com/caffefrascati" target="_blank" class="socicon">b</a></li>
+    <li><a title="Yelp" href="http://www.yelp.com/biz/caffe-frascati-san-jose-2" target="_blank" class="socicon">h</a></li>
+    <li><a title="Foursquare" href="https://foursquare.com/v/caffe-frascati/4e358f29aeb7f67fbd323dfa" target="_blank" class="socicon">e</a></li>
+    <li><a title="Instagram" href="http://instagram.com/caffefrascati" target="_blank" class="socicon">x</a></li>
+    <li><a title="TripAdvisor" href="http://www.tripadvisor.com/Restaurant_Review-g33020-d2666381-Reviews-Caffe_Frascati-San_Jose_California.html" target="_blank" class="socicon">3</a></li>
+    <li><a title="Google+" href="https://plus.google.com/102292206362965146813/about" target="_blank" class="socicon">c</a></li>
+  </ul>
+</div>
+  </div>
+  
+</div>
+    <div id="banner">
+      <img src="../images/cafe1.jpg" />
+    </div>
+    <div id="navigation">
+  <ul>
+    <li><a href="/">Home &rsaquo;</a></li>
+    <li><a href="/musica/">Musica &rsaquo;</a></li>
+    <li><a href="/menu/">Menu &rsaquo;</a></li>
+    <li><a href="/mobile/">Mobile &rsaquo;</a></li>
+  </ul>
+</div>
+    <div id="content">
+      <a class="featurelink" href="/musica">
+<div id="col1">
+  <div id="featured-date">
+  </div>
+  <div id="featured-event">
+  </div>
+</div>
+
+</a>
+
+<script type="text/javascript" src="/js/moment.min.js"></script>
+<script type="text/javascript" src="/js/moment-timezone.min.js"></script>
+<script type="text/javascript" src="/js/gcal.js"></script>
+<script type="text/javascript">
+  
+function handleUpcoming(eventlist) {
+  GCalOutput(eventlist, $('#featured-event'));
+  
+  $('.event').slice(1).hide();
+  $('.event-date').hide();
+  $('.event-content').hide();  
+  
+  
+  var txt = $('.event-title').slice(0,1);
+  var txt2 = $('.event-date').slice(0,1);
+  $("#featured-event").html(txt.text()).slabText({
+    "fontRatio":1.5,
+  });
+  
+  $("#featured-date").html(txt2.text());
+  
+}
+
+$(window).load(function() { GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/full?alt=json").then(handleUpcoming);
+});
+  
+</script>
+
+
+<div id="col2">
+  <div id="address">
+    315 South First Street<br />
+    San Jose, CA 95113<br />
+    (408) 287 – 0400<br />
+  </div>
+  <div id="hours">
+    Monday – Thursday: 7 am – 10 pm<br />
+    Friday: 7 am – midnight<br />
+    Saturday: 8 am – midnight<br />
+    Sunday: 8 am – 9 pm<br />
+  </div>
+  <img class="about" src="../images/map.png" alt="map" />
+  <img class="about" src="../images/yelpreview.png" alt="map" />
+</div>
+<hr />
+<p>Caffe Frascati is like a little taste of Italy right in the heart of downtown San Jose. We want to bring you the best cappuccino outside of Rome and the tasty panini you can enjoy in the villages that dot the Umbrian countryside. And, to make things better, we're just around the corner. Come and sip one of our famous cappuccinos, try one of our tasty paninis, experience some live music, or just enjoy happy hour with friends after a long day at work. Cappuccino, Musica, Birra e Vino. BRAVO!</p>  
+
+    </div>
+    
+    <div id="footer">
+  
+  <div id="right-credit">
+    Website created by<br />
+    <a href="http://jmv.me/">Julia Van Cleve</a>
+  </div>
+  
+</div>
+    </div>
+</body>
+
+</html>
