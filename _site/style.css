@@ -1,4 +1,4 @@
-@import url('/webfonts/MyFontsWebfontsKit.css');
+@import url('/caffefrascati/webfonts/MyFontsWebfontsKit.css');
 @import url('//fonts.googleapis.com/css?family=Montserrat:400,700');
 
 body {
@@ -30,12 +30,6 @@ a {
   margin:0;
 }
 
-#header .left {
-  display:block;
-  float:left;
-  margin-top:50px;
-}
-
 #logo {
   text-align:center;
   width:545px;
@@ -46,6 +40,7 @@ a {
   width: 200px;
   position: absolute;
   margin-left: 100px;
+  z-index:20;
 }
 
 #header .right .social {
@@ -60,18 +55,6 @@ a {
   display:inline;
 }
 
-/* Banner */
-
-#banner {
-  height:200px;
-  overflow:hidden;
-  border-radius:5px;
-}
-
-#banner img {
-  width:100%;
-}
-
 /* Navigation */
 
 #navigation {
@@ -82,6 +65,7 @@ a {
 #navigation ul {
   text-align:center;
   border-bottom:1px solid #595A5B;
+  padding-left:0px;
 }
 
 #navigation li {
@@ -103,10 +87,20 @@ a.featurelink:hover {
 }
 
 #navigation a {
-  padding-left:50px;
-  padding-right:50px;
-  padding-bottom:10px;
-  padding-top:10px;
+  padding-left:20px;
+  padding-right:20px;
+  padding-bottom:12px;
+  padding-top:12px;
+}
+
+/*to make room for the logo in the middle of page*/
+
+#navigation a.middle1 {
+  padding-right:100px;
+}
+
+#navigation a.middle2 {
+  padding-left:100px;
 }
 
 /* content */
@@ -115,44 +109,26 @@ h1 {
   color:#C41130;
   padding:0;
   margin:0;
-  margin-bottom:15px;
+  margin-bottom:12px;
   font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
 }
 
 #col1 {
-  display:inline-block;
+  /*display:inline-block;*/
+  display:block;
   vertical-align:top;
+  padding-top:15px;
   padding-right:15px;
+  padding-left:15px;
+  padding-bottom:8px;
   width:300px;
-  min-height:328px;
   text-transform:uppercase;
   font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
-  border-right:1px solid #595A5B; 
-}
-
-#col2 {
-  display:inline-block;
-  vertical-align:top;
-  width:618px;
-}
-
-#col2 img {
-  margin-left:20px;
-  height:239px;
-}
-
-#col2 h1 {
-  padding-left:20px;
-}
-
-#address, #hours {
-  padding-bottom:12px;
-  padding-left:20px;
-  float:left;
-}
-
-#hours {
-  margin-left:90px;
+  position:absolute; /* for overlay */
+  z-index:20;
+  background-color: rgba(0, 0, 0, 0.6); /* for overlay */
+  margin:10px;
+  left:1;
 }
 
 hr {
@@ -193,10 +169,6 @@ hr {
     border:1px solid #595A5B;
 }
 
-#col1 .event:first-child {
-  border:none;
-}
-
 /* menu */
 
 img.fullwidth {
@@ -209,6 +181,7 @@ img.fullwidth {
   margin-bottom:15px;
   border-bottom:1px solid #595A5B;
   padding-bottom:15px;
+  padding-top:30px;
 }
 
 /* sideimage slideshow */
@@ -239,13 +212,13 @@ a.cal-links:hover {
 }
 
 div.slideshow {
-  width:380px;
+  width:400px;
   height:500px;
   overflow:hidden;
   float:left;
   position:relative;
   left:0;
-  margin-bottom:16px;
+  margin-bottom:20px;
 }
 
 div.slideshow img {
@@ -253,28 +226,45 @@ div.slideshow img {
   position:absolute;
 }
 
+/*Frontpage slideshow */
+
+div.slideshow.frontpage img {
+  width:940px;
+  min-height:402px;
+}
+
+div.slideshow.frontpage {
+  width:940px;
+  height:402px;
+}
+
 .right p, .right img {
-  width:540px;
-  float:right;
-  padding-top:0;
-  margin-top:0;
+  width:940px;
+  margin:0;
+  padding:0;
+  padding-bottom:12px;
+}
+
+.right img {
+    width:540px;
+    margin-bottom:12px;
+    margin-right:auto;
+    margin-left:auto;
 }
 
 div.staticimg {
-  float:right;
   position:relative;
   overflow:hidden;
-  height:280px;
+  height:200px;
+  margin-bottom:12px;
+  clear:both;
 }
 
-@-moz-document url-prefix() {
-  div.staticimg {
-    height:268px;
-  }
-}
-
-.right h1 {
-  margin-left:400px;
+.shop {
+  margin-right:12px;
+  margin-bottom:12px;
+  width:90px;
+  float:left;
 }
 
 /* footer */
@@ -283,16 +273,65 @@ div.staticimg {
   border-top:1px solid #595A5B;
   padding-top:15px;
   padding-bottom:15px;
-  margin-top:12px;
+  margin-top:20px;
   clear:both;
 }
 
 #right-credit {
   float:right;
-  width:774px;
+  width:750px;
   padding-bottom:50px;
+  text-align:right;
 }
 
-#right-credit {
-  text-align:right;
+#left-credit {
+  float:left;
+  text-align:left;
+}
+
+#right-credit a:hover, #left-credit a:hover, .inline-a:hover {
+  color:#FDFCD9;
+}
+
+#left-credit.bottom-credit {
+  margin-top:12px;
+  margin-bottom:12px;
+}
+
+.featurelink {
+  color:#FDFCD9;
+}
+
+.scroll {
+  overflow:scroll;
+  height:480px;
+}
+
+.med-left-img {
+  width:300px;
+  float:left;
+  padding-right:20px;
+  padding-bottom:20px;
+}
+
+.med-left-img.last {
+  padding-right:0px;
+}
+
+.lower-h {
+  padding-top:28px;
+}
+
+/*Address and hours */
+#address {
+  float:left;
+  padding-right:176px;
+}
+
+#hours {
+  float:left;
+}
+
+#hours, #address {
+  margin-top:12px;
 }

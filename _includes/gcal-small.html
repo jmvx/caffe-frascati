@@ -1,27 +1,33 @@
-<script type="text/javascript" src="/js/moment.min.js"></script>
-<script type="text/javascript" src="/js/moment-timezone.min.js"></script>
-<script type="text/javascript" src="/js/gcal.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/moment.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/moment-timezone.min.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/gcal.js"></script>
 <script type="text/javascript">
   
 function handleUpcoming(eventlist) {
-  GCalOutput(eventlist, $('#featured-event'));
+  // Output only the first event
+  GCalOutput(eventlist.slice(0,1), $('#featured-event'));
   
-  $('.event').slice(1).hide();
-  $('.event-date').hide();
-  $('.event-content').hide();  
+  var txt = $('.event-title');
+  var txt2 = $('.event-date');
   
+  $("#featured-event").text(txt.text());
+  $("#featured-date").text(txt2.text());
   
-  var txt = $('.event-title').slice(0,1);
-  var txt2 = $('.event-date').slice(0,1);
-  $("#featured-event").html(txt.text()).slabText({
-    "fontRatio":1.5,
+  // When the fonts are loaded we can apply the slab text effect
+  $(document).on('all-fonts-active', function () {
+    $('#featured-event').slabText({
+      'fontRatio': 1.5,
+      'noResizeEvent': true,
+    });
   });
   
-  $("#featured-date").html(txt2.text());
-  
+  // In case the fonts are already loaded, trigger that event once
+  if ($('html').hasClass('wf-active'))
+    $(document).trigger('all-fonts-active');
 }
 
-$(window).load(function() { GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/full?alt=json").then(handleUpcoming);
+$(document).ready(function() {
+  GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/full?alt=json").then(handleUpcoming);
 });
   
 </script>

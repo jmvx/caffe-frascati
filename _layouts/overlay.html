@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  
+  <meta charset="UTF-8">
+  {% if page.description %}
+  <meta name="description" content="{{ page.description }}">
+  {% endif %}
+  
+  
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/style.css">
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/webfonts/slabtext.css">  
+  <link rel="stylesheet" type="text/css" href="{{ site.baseurl }}/webfonts/socicon.css">
+  
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      custom: {
+        families: [ 'TradeGothicLTCom-BdCn20' ]
+      },
+      active: function() {
+        $(document).trigger('all-fonts-active');
+      },
+    });
+  </script>
+  
+  {% if page.slideshow or (page.sideimages | size) > 1 %}
+  <script type="text/javascript" src="{{ site.baseurl }}/js/slideshow.js"></script>
+  {% endif %}
+  
+  <script type="text/javascript" src="{{ site.baseurl }}/js/jquery.slabtext.js"></script>
+  
+  <title>{{ page.title }}</title>
+  
+</head>
+
+<body>
+  <div id="container">
+    {% include header.html %}
+    {% include navigation.html %}
+    <div id="content">
+      {{ content }}
+    </div>
+    
+    {% include footer.html %}
+    </div>
+</body>
+
+</html>

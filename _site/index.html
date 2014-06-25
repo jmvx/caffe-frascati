@@ -7,17 +7,29 @@
   <meta name="description" content="Caffe Frascati is like a little taste of Italy right in the heart of downtown San Jose. We want to bring you the best cappuccino outside of Rome and the tasty panini you can enjoy in the villages that dot the Umbrian countryside. And, to make things better, we're just around the corner. Come and sip one of our famous cappuccinos, try one of our tasty paninis, experience some live music, or just enjoy happy hour with friends after a long day at work. Cappuccino, Musica, Birra e Vino. BRAVO!">
   
   
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link rel="stylesheet" type="text/css" href="/webfonts/slabtext.css">  
-  <link rel="stylesheet" type="text/css" href="/webfonts/socicon.css">
-    
+  
+  <link rel="stylesheet" type="text/css" href="/caffefrascati/style.css">
+  <link rel="stylesheet" type="text/css" href="/caffefrascati/webfonts/slabtext.css">  
+  <link rel="stylesheet" type="text/css" href="/caffefrascati/webfonts/socicon.css">
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      custom: {
+        families: [ 'TradeGothicLTCom-BdCn20' ]
+      },
+      active: function() {
+        $(document).trigger('all-fonts-active');
+      },
+    });
+  </script>
   
   
+  <script type="text/javascript" src="/caffefrascati/js/slideshow.js"></script>
   
-
-  <!-- <script type="text/javascript" src="/js/bigtext.js"></script> -->
-  <script type="text/javascript" src="/js/jquery.slabtext.js"></script>
+  
+  <script type="text/javascript" src="/caffefrascati/js/jquery.slabtext.js"></script>
   
   <title>Caffe Frascati</title>
   
@@ -28,7 +40,7 @@
     <div id="header">
   
   <div id="logo">
-    <img src="../images/logo.gif" alt="caffe frascati logo"/>
+    <img src="/caffefrascati/images/logo.gif" alt="caffe frascati logo"/>
   </div>
   
   <div class="right">
@@ -46,84 +58,115 @@
   </div>
   
 </div>
-    <div id="banner">
-      <img src="../images/cafe1.jpg" />
-    </div>
     <div id="navigation">
   <ul>
-    <li><a href="/">Home &rsaquo;</a></li>
-    <li><a href="/musica/">Musica &rsaquo;</a></li>
-    <li><a href="/menu/">Menu &rsaquo;</a></li>
-    <li><a href="/mobile/">Mobile &rsaquo;</a></li>
+    <li><a href="/caffefrascati/">Home &rsaquo;</a></li>
+    <li><a href="/caffefrascati/about/">About &rsaquo;</a></li>
+    <li><a class="middle1" href="/caffefrascati/musica/">Musica &rsaquo;</a></li>
+    <li><a class="middle2" href="/caffefrascati/menu/">Menu &rsaquo;</a></li>
+    <li><a href="/caffefrascati/mobile/">Mobile &rsaquo;</a></li>
+    <li><a href="/caffefrascati/shop/">Shop &rsaquo;</a></li>
   </ul>
 </div>
     <div id="content">
-      <a class="featurelink" href="/musica">
-<div id="col1">
-  <div id="featured-date">
+      <a class="featurelink" href="/caffefrascati/musica">
+  <div id="col1">
+    <div id="featured-date">
+    </div>
+    <div id="featured-event">
+    </div>
   </div>
-  <div id="featured-event">
-  </div>
-</div>
-
 </a>
 
-<script type="text/javascript" src="/js/moment.min.js"></script>
-<script type="text/javascript" src="/js/moment-timezone.min.js"></script>
-<script type="text/javascript" src="/js/gcal.js"></script>
+<script type="text/javascript" src="/caffefrascati/js/moment.min.js"></script>
+<script type="text/javascript" src="/caffefrascati/js/moment-timezone.min.js"></script>
+<script type="text/javascript" src="/caffefrascati/js/gcal.js"></script>
 <script type="text/javascript">
   
 function handleUpcoming(eventlist) {
-  GCalOutput(eventlist, $('#featured-event'));
+  // Output only the first event
+  GCalOutput(eventlist.slice(0,1), $('#featured-event'));
   
-  $('.event').slice(1).hide();
-  $('.event-date').hide();
-  $('.event-content').hide();  
+  var txt = $('.event-title');
+  var txt2 = $('.event-date');
   
+  $("#featured-event").text(txt.text());
+  $("#featured-date").text(txt2.text());
   
-  var txt = $('.event-title').slice(0,1);
-  var txt2 = $('.event-date').slice(0,1);
-  $("#featured-event").html(txt.text()).slabText({
-    "fontRatio":1.5,
+  // When the fonts are loaded we can apply the slab text effect
+  $(document).on('all-fonts-active', function () {
+    $('#featured-event').slabText({
+      'fontRatio': 1.5,
+      'noResizeEvent': true,
+    });
   });
   
-  $("#featured-date").html(txt2.text());
-  
+  // In case the fonts are already loaded, trigger that event once
+  if ($('html').hasClass('wf-active'))
+    $(document).trigger('all-fonts-active');
 }
 
-$(window).load(function() { GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/full?alt=json").then(handleUpcoming);
+$(document).ready(function() {
+  GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/full?alt=json").then(handleUpcoming);
 });
   
 </script>
-
-
-<div id="col2">
-  <div id="address">
-    315 South First Street<br />
-    San Jose, CA 95113<br />
-    (408) 287 – 0400<br />
-  </div>
-  <div id="hours">
-    Monday – Thursday: 7 am – 10 pm<br />
-    Friday: 7 am – midnight<br />
-    Saturday: 8 am – midnight<br />
-    Sunday: 8 am – 9 pm<br />
-  </div>
-  <img class="about" src="../images/map.png" alt="map" />
-  <img class="about" src="../images/yelpreview.png" alt="map" />
+    
+<div class="slideshow frontpage" data-showduration="3s" data-fadeduration="1s">
+  
+    
+      <img data-slidesrc="slideshow/cafe1.jpg" />
+    
+  
+    
+      <img data-slidesrc="slideshow/cafe2.jpg" />
+    
+  
+    
+      <img data-slidesrc="slideshow/cafe3.jpg" />
+    
+  
+    
+      <img data-slidesrc="slideshow/cafe4.jpg" />
+    
+  
+    
+      <img data-slidesrc="slideshow/cafe5.jpg" />
+    
+  
+    
+      <img data-slidesrc="slideshow/cafe6.jpg" />
+    
+  
+    
+      <img data-slidesrc="slideshow/Mauricio.jpg" />
+    
+  
+    
+      <img src="slideshow/Harry-Mathias.jpg" />
+    
+  
 </div>
-<hr />
-<p>Caffe Frascati is like a little taste of Italy right in the heart of downtown San Jose. We want to bring you the best cappuccino outside of Rome and the tasty panini you can enjoy in the villages that dot the Umbrian countryside. And, to make things better, we're just around the corner. Come and sip one of our famous cappuccinos, try one of our tasty paninis, experience some live music, or just enjoy happy hour with friends after a long day at work. Cappuccino, Musica, Birra e Vino. BRAVO!</p>  
 
     </div>
     
     <div id="footer">
-  
-  <div id="right-credit">
-    Website created by<br />
-    <a href="http://jmv.me/">Julia Van Cleve</a>
-  </div>
-  
+
+<div id="left-credit">
+Join our e-mail list:<br />
+<a href="http://visitor.r20.constantcontact.com/manage/optin/ea?v=001jarSHX2McaRFPSkJG_EDyA%3D%3D">Subscribe &rsaquo;</a>
+</div>
+
+<div id="right-credit">
+Website created by<br />
+<a href="http://jmv.me/" target="_blank">Julia Van Cleve &rsaquo;</a>
+</div>
+
+<div id="left-credit" class="bottom-credit">
+Book our Piaggio Ape:<br />
+<a href="/caffefrascati/mobile/"> Learn More &rsaquo;</a>
+</div>
+
 </div>
     </div>
 </body>

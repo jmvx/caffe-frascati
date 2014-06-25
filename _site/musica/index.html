@@ -5,19 +5,29 @@
   <meta charset="UTF-8">
   
   
-  <link rel="stylesheet" type="text/css" href="/style.css">
-  <link rel="stylesheet" type="text/css" href="/webfonts/slabtext.css">  
-  <link rel="stylesheet" type="text/css" href="/webfonts/socicon.css">
-    
+  
+  <link rel="stylesheet" type="text/css" href="/caffefrascati/style.css">
+  <link rel="stylesheet" type="text/css" href="/caffefrascati/webfonts/slabtext.css">  
+  <link rel="stylesheet" type="text/css" href="/caffefrascati/webfonts/socicon.css">
+  
   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/webfont/1.4.7/webfont.js"></script>
+  <script>
+    WebFont.load({
+      custom: {
+        families: [ 'TradeGothicLTCom-BdCn20' ]
+      },
+      active: function() {
+        $(document).trigger('all-fonts-active');
+      },
+    });
+  </script>
   
   
-  <script type="text/javascript" src="/js/slideshow.js"></script>
+  <script type="text/javascript" src="/caffefrascati/js/slideshow.js"></script>
   
   
-
-  <!-- <script type="text/javascript" src="/js/bigtext.js"></script> -->
-  <script type="text/javascript" src="/js/jquery.slabtext.js"></script>
+  <script type="text/javascript" src="/caffefrascati/js/jquery.slabtext.js"></script>
   
   <title>Musica</title>
   
@@ -28,7 +38,7 @@
     <div id="header">
   
   <div id="logo">
-    <img src="../images/logo.gif" alt="caffe frascati logo"/>
+    <img src="/caffefrascati/images/logo.gif" alt="caffe frascati logo"/>
   </div>
   
   <div class="right">
@@ -46,15 +56,14 @@
   </div>
   
 </div>
-    <div id="banner">
-      <img src="../images/cafe1.jpg" />
-    </div>
     <div id="navigation">
   <ul>
-    <li><a href="/">Home &rsaquo;</a></li>
-    <li><a href="/musica/">Musica &rsaquo;</a></li>
-    <li><a href="/menu/">Menu &rsaquo;</a></li>
-    <li><a href="/mobile/">Mobile &rsaquo;</a></li>
+    <li><a href="/caffefrascati/">Home &rsaquo;</a></li>
+    <li><a href="/caffefrascati/about/">About &rsaquo;</a></li>
+    <li><a class="middle1" href="/caffefrascati/musica/">Musica &rsaquo;</a></li>
+    <li><a class="middle2" href="/caffefrascati/menu/">Menu &rsaquo;</a></li>
+    <li><a href="/caffefrascati/mobile/">Mobile &rsaquo;</a></li>
+    <li><a href="/caffefrascati/shop/">Shop &rsaquo;</a></li>
   </ul>
 </div>
     <div id="content">
@@ -96,9 +105,9 @@
   <div class="scroll">
     <div id="gcal-events"></div>
   </div>
-  <script type="text/javascript" src="/js/moment.min.js"></script>
-<script type="text/javascript" src="/js/moment-timezone.min.js"></script>
-<script type="text/javascript" src="/js/gcal.js"></script>
+  <script type="text/javascript" src="/caffefrascati/js/moment.min.js"></script>
+<script type="text/javascript" src="/caffefrascati/js/moment-timezone.min.js"></script>
+<script type="text/javascript" src="/caffefrascati/js/gcal.js"></script>
 <script type="text/javascript">
 function handleUpcoming(eventlist) {
   GCalOutput(eventlist, $('#gcal-events'));
@@ -113,12 +122,22 @@ $(window).load(function() {
     </div>
     
     <div id="footer">
-  
-  <div id="right-credit">
-    Website created by<br />
-    <a href="http://jmv.me/">Julia Van Cleve</a>
-  </div>
-  
+
+<div id="left-credit">
+Join our e-mail list:<br />
+<a href="http://visitor.r20.constantcontact.com/manage/optin/ea?v=001jarSHX2McaRFPSkJG_EDyA%3D%3D">Subscribe &rsaquo;</a>
+</div>
+
+<div id="right-credit">
+Website created by<br />
+<a href="http://jmv.me/" target="_blank">Julia Van Cleve &rsaquo;</a>
+</div>
+
+<div id="left-credit" class="bottom-credit">
+Book our Piaggio Ape:<br />
+<a href="/caffefrascati/mobile/"> Learn More &rsaquo;</a>
+</div>
+
 </div>
     </div>
 </body>

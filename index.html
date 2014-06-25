@@ -1,36 +1,36 @@
 ---
 title: Caffe Frascati
-layout: default
+layout: overlay
+slideshow: Yes
 description: Caffe Frascati is like a little taste of Italy right in the heart of downtown San Jose. We want to bring you the best cappuccino outside of Rome and the tasty panini you can enjoy in the villages that dot the Umbrian countryside. And, to make things better, we're just around the corner. Come and sip one of our famous cappuccinos, try one of our tasty paninis, experience some live music, or just enjoy happy hour with friends after a long day at work. Cappuccino, Musica, Birra e Vino. BRAVO!
+images:
+  - slideshow/cafe1.jpg
+  - slideshow/cafe2.jpg
+  - slideshow/cafe3.jpg
+  - slideshow/cafe4.jpg
+  - slideshow/cafe5.jpg
+  - slideshow/cafe6.jpg
+  - slideshow/Mauricio.jpg
+  - slideshow/Harry-Mathias.jpg
 ---
 
-<a class="featurelink" href="/musica">
-<div id="col1">
-  <div id="featured-date">
+<a class="featurelink" href="{{ site.baseurl }}/musica">
+  <div id="col1">
+    <div id="featured-date">
+    </div>
+    <div id="featured-event">
+    </div>
   </div>
-  <div id="featured-event">
-  </div>
-</div>
-
 </a>
 
 {% include gcal-small.html %}
-
-
-<div id="col2">
-  <div id="address">
-    315 South First Street<br />
-    San Jose, CA 95113<br />
-    (408) 287 – 0400<br />
-  </div>
-  <div id="hours">
-    Monday – Thursday: 7 am – 10 pm<br />
-    Friday: 7 am – midnight<br />
-    Saturday: 8 am – midnight<br />
-    Sunday: 8 am – 9 pm<br />
-  </div>
-  <img class="about" src="../images/map.png" alt="map" />
-  <img class="about" src="../images/yelpreview.png" alt="map" />
+    
+<div class="slideshow frontpage" data-showduration="3s" data-fadeduration="1s">
+  {% for image in page.images %}
+    {% if forloop.last %}
+      <img src="{{ image }}" />
+    {% else %}
+      <img data-slidesrc="{{ image }}" />
+    {% endif %}
+  {% endfor %}
 </div>
-<hr />
-<p>Caffe Frascati is like a little taste of Italy right in the heart of downtown San Jose. We want to bring you the best cappuccino outside of Rome and the tasty panini you can enjoy in the villages that dot the Umbrian countryside. And, to make things better, we're just around the corner. Come and sip one of our famous cappuccinos, try one of our tasty paninis, experience some live music, or just enjoy happy hour with friends after a long day at work. Cappuccino, Musica, Birra e Vino. BRAVO!</p>  
