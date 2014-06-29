@@ -140,10 +140,18 @@ hr {
 
 /* Google Calender Events */
 
+#gcal-events {
+  margin-top:12px;
+  width:540px;
+  float:left;
+  overflow-y:scroll;
+  height:470px;
+}
+
 .event {
     display:block;
     padding:5px;
-    height:100%;
+    /*height:100%;*/
     vertical-align:top;
     font-weight:400;
 }
@@ -169,6 +177,18 @@ hr {
 
 .event:first-child {
     border:1px solid #595A5B;
+}
+
+.cal-links {
+  margin-left:18px;
+}
+
+.cal-links.first {
+  margin-left:0px;
+}
+
+a.cal-links:hover {
+  color:#FDFCD9;
 }
 
 /* menu */
@@ -197,20 +217,6 @@ h2 {
   letter-spacing:1px;
   font-weight:normal;
   font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
-}
-
-.cal-links {
-  margin-left:18px;
-}
-
-a.cal-links:hover {
-  color:#FDFCD9;
-}
-
-.right #gcal-events {
-  margin-top:12px;
-  width:540px;
-  float:right;
 }
 
 div.slideshow {
@@ -304,10 +310,10 @@ div.staticimg {
   color:#FDFCD9;
 }
 
-.scroll {
+/*.scroll {
   overflow:scroll;
   height:480px;
-}
+}*/
 
 .med-left-img {
   width:300px;
@@ -327,7 +333,7 @@ div.staticimg {
 /*Address and hours */
 #address {
   float:left;
-  padding-right:176px;
+  padding-right:150px;
 }
 
 #hours {
@@ -336,4 +342,5 @@ div.staticimg {
 
 #hours, #address {
   margin-top:12px;
+  margin-bottom:12px;
 }
