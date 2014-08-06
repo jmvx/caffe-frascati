@@ -27,10 +27,13 @@ images:
     
 <div class="slideshow frontpage" data-showduration="3s" data-fadeduration="1s">
   {% for image in page.images %}
+  <div class="slide">
     {% if forloop.last %}
       <img src="{{ image }}" />
     {% else %}
       <img data-slidesrc="{{ image }}" />
     {% endif %}
+  </div>
+    
   {% endfor %}
 </div>

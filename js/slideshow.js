@@ -35,7 +35,7 @@ function jmvxApplySlideshow(target) {
   // After all images are loaded, we can set up the CSS to animate
   target.on('onLoadComplete', function () {
     var target = $(this);
-    var imgs = $('img', target);
+    var imgs = $('.slide', target);
     var n = imgs.length;
     var a = parseInt(target.data('showduration'));
     var b = parseInt(target.data('fadeduration'));

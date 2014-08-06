@@ -1,4 +1,4 @@
-@import url('/caffefrascati/webfonts/MyFontsWebfontsKit.css');
+@import url('/webfonts/MyFontsWebfontsKit.css');
 @import url('//fonts.googleapis.com/css?family=Montserrat:400,700');
 
 body {
@@ -341,4 +341,16 @@ div.staticimg {
 #hours, #address {
   margin-top:12px;
   margin-bottom:12px;
+}
+
+/* photo captions */
+.slideshow-text {
+  font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
+  color:#FDFCD9;
+  position:absolute;
+  font-size:18pt;
+  padding:12px;
+  background-color: rgba(0, 0, 0, 0.6); /* for overlay */
+  width:380px;
+  -webkit-font-smoothing: subpixel-antialiased
 }

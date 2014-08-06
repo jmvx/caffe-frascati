@@ -131,6 +131,7 @@ function GCalEvents(calendar_json_url) {
     });
   
     // Filter out any events that precede today
+    // JULIA FIXME: Needs to be the start of the day in the Los_Angeles timezone
     var today = moment().startOf('day');
     
     var upcoming = $.grep(events, function(event, i) {

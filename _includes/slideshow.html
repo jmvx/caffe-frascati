@@ -1,9 +1,17 @@
 <div class="slideshow" data-showduration="3s" data-fadeduration="1s">
-{% for image in page.images %}
+{% for item in page.images %}
+<div class="slide">
   {% if forloop.last %}
-    <img src="{{ image }}" />
+    <img src="{{ item.image }}" />
   {% else %}
-    <img data-slidesrc="{{ image }}" />
+    <img data-slidesrc="{{ item.image }}" />
   {% endif %}
+  
+  {% if item.caption %}
+    <div class="slideshow-text">{{ item.caption }}</div>
+  {% endif %}
+</div>
+  
 {% endfor %}
 </div>
+
