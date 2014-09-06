@@ -33,16 +33,15 @@ a {
 }
 
 #logo {
-  text-align:center;
-  width:545px;
-  float:left;
+  text-align: center;
+  width: 940px;
+  position: absolute;
+  z-index: 20;
 }
 
 #logo img {
   width: 200px;
-  position: absolute;
-  margin-left: 100px;
-  z-index:20;
+  margin: 0 auto;
 }
 
 #header .right .social {
