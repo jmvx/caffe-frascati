@@ -33,16 +33,17 @@ a {
 }
 
 #logo {
-  text-align:center;
-  width:545px;
-  float:left;
+    position:absolute;
+    width:940px;
+    margin-right:auto;
+    margin-left:auto;
 }
 
 #logo img {
-  width: 200px;
-  position: absolute;
-  margin-left: 100px;
-  z-index:20;
+    position:absolute;
+    width:200px;
+    left:375px;
+    z-index:1;
 }
 
 #header .right .social {
