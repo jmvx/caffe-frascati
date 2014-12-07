@@ -1,13 +1,14 @@
 <script type="text/javascript" src="{{ site.baseurl }}/js/moment.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/moment-timezone.min.js"></script>
 <script type="text/javascript" src="{{ site.baseurl }}/js/gcal.js"></script>
+<script type="text/javascript" src="{{ site.baseurl }}/js/autolink-min.js"></script>
 <script type="text/javascript">
 function handleUpcoming(eventlist) {
   GCalOutput(eventlist, $('#gcal-events'));
 }
 
 $(window).load(function() {
-    GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/full?alt=json").then(handleUpcoming);
+    GCalEvents("https://www.google.com/calendar/feeds/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/public/basic?alt=json").then(handleUpcoming);
   });
   
 </script>

@@ -104,23 +104,36 @@ function GCalEvents(calendar_json_url) {
     var events = new Array();
     $.each(data.feed.entry, function(i, item) {
       var ev = {};
-      ev.title = item.title.$t;
-      ev.content = item.content.$t;
+      ev.title = $('<div/>').html(item.title.$t).text();
       
-      // Recurring events should just be skipped
-      if (item.gd$when === undefined)
-        return;
+      // On the basic calendar, the start time is inside the content (??)
+      // but we can extract it
+      var descidx = item.content.$t.search("Description: ");
+      if (descidx === -1)
+        ev.content = "";
+      else {
+        ev.content = $('<div/>').html(
+          item.content.$t.substr(descidx + "Description: ".length)).text();
+      }
       
-      // Parse the date as an ISO-8601 string, assuming the default timezone
-      // if one is not provided
-      var start = item.gd$when[0].startTime;
-      if (moment.parseZone(start).zone() === 0)
-        ev.date = moment.tz(start, timezone);
-      else
-        ev.date = moment(start).tz(timezone);
+      var when = item.content.$t.substr("When: ".length,
+        item.content.$t.search("<") - "When: ".length);
       
-      // Is this an all-day event?
-      ev.isAllDay = (item.gd$when[0].startTime.indexOf('T') === -1);
+      // Lop off the day of the week, since it can't be parsed by moment.js
+      when = when.substr(when.search(" ") + 1);
+      
+      // First try to parse with a time, if not, parse with just a date
+      ev.date = moment(when, "MMM D YYYY Ha");
+      if (ev.date.isValid())
+      {
+        ev.isAllDay = false;
+      } else {
+        ev.date = moment(when, "MMM D YYYY");
+        ev.isAllDay = true;
+      }
+      
+      // Treat the date as if it were in the calendar's default timezone 
+      //ev.date = moment(ev.date).tz(timezone);
       
       events.push(ev);
     });
@@ -131,7 +144,6 @@ function GCalEvents(calendar_json_url) {
     });
   
     // Filter out any events that precede today
-    // JULIA FIXME: Needs to be the start of the day in the Los_Angeles timezone
     var today = moment().startOf('day');
     
     var upcoming = $.grep(events, function(event, i) {
@@ -159,7 +171,7 @@ function GCalOutput(eventlist, target) {
       
       var el_content = $("<div>");
       el_content.addClass("event-content");
-      el_content.text(event.content);
+      el_content.html(event.content.autoLink())
       
       var el = $("<div>").append(el_title)
                          .append(el_date)
