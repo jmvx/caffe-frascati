@@ -171,7 +171,10 @@ function GCalOutput(eventlist, target) {
       
       var el_content = $("<div>");
       el_content.addClass("event-content");
-      el_content.html(event.content.autoLink())
+      if (String.prototype.autoLink !== undefined)
+        el_content.html(event.content.autoLink({target: "_blank"}));
+      else
+        el_content.text(event.content);
       
       var el = $("<div>").append(el_title)
                          .append(el_date)
