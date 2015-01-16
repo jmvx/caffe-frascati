@@ -71,6 +71,9 @@ function jmvxApplySlideshow(target) {
       keyframes += '}\n\n';
     });
     target.append($('<style type="text/css">' + keyframes + '</style>'));
+    
+    // Make every image visible now
+    imgs.removeClass('hidden-slide');
   });
   
   // Load each image, decrementing the counter as they load, and then trigger
