@@ -98,12 +98,8 @@ a.featurelink:hover {
 
 /*to make room for the logo in the middle of page*/
 
-#navigation a.middle1 {
-  padding-right:100px;
-}
-
 #navigation a.middle2 {
-  padding-left:100px;
+  padding-left:250px;
 }
 
 /* content */
