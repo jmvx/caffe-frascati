@@ -16,51 +16,27 @@ a {
 
 #container {
   display:block;
-  width:940px;
+  max-width:940px;
   margin-right:auto;
   margin-left:auto;
 }
 
-/* Header */
-
-#header {
-  height:100px;
-}
-
-#header .social ul {
-  padding:0;
-  margin:0;
-}
+/* HEADER */
 
 #logo {
-    position:absolute;
-    width:940px;
+    max-width:940px;
+}
+
+#logo img {
+    display:block;
+    width:200px;
     margin-right:auto;
     margin-left:auto;
 }
 
-#logo img {
-    position:absolute;
-    width:200px;
-    left:375px;
-    z-index:1;
-}
+/* NAVIGATION */
 
-#header .right .social {
-  display: block;
-  float: left;
-  margin-top: 50px;
-  margin-left: 689px;
-}
-
-#header .social li{
-  list-style-type:none;
-  display:inline;
-}
-
-/* Navigation */
-
-#navigation {
+#navigation, #footer {
   display:block;
   width:100%;
 }
@@ -90,19 +66,13 @@ a.featurelink:hover {
 }
 
 #navigation a {
-  padding-left:20px;
-  padding-right:20px;
+  padding-left:40px;
+  padding-right:40px;
   padding-bottom:12px;
   padding-top:12px;
 }
 
-/*to make room for the logo in the middle of page*/
-
-#navigation a.middle2 {
-  padding-left:250px;
-}
-
-/* content */
+/* MAIN CONTENT */
 
 h1 {
   color:#C41130;
@@ -113,7 +83,6 @@ h1 {
 }
 
 #col1 {
-  /*display:inline-block;*/
   display:block;
   vertical-align:top;
   padding-top:15px;
@@ -135,7 +104,7 @@ hr {
   border-top: 1px solid #595A5B;
 }
 
-/* Google Calender Events */
+/* GOOGLE CALENDAR EVENTS */
 
 #gcal-events {
   margin-top:12px;
@@ -188,7 +157,7 @@ a.cal-links:hover {
   color:#FDFCD9;
 }
 
-/* menu */
+/* MENU PAGE */
 
 img.fullwidth {
   width:100%;
@@ -197,13 +166,17 @@ img.fullwidth {
 .feature {
   color:#C41130;
   font-size:12pt;
-  margin-bottom:15px;
+  margin-bottom:10px;
   border-bottom:1px solid #595A5B;
-  padding-bottom:15px;
-  padding-top:30px;
+  padding-bottom:10px;
+  padding-top:10px;
 }
 
-/* sideimage slideshow */
+.feature > div {
+    margin-bottom:10px;
+}
+
+/* SIDE-IMAGE SLIDESHOW */
 
 h2 {
   padding:0;
@@ -217,7 +190,8 @@ h2 {
 }
 
 div.slideshow {
-  width:400px;
+  width:390px;
+  margin-right:10px;
   height:500px;
   overflow:hidden;
   float:left;
@@ -227,7 +201,6 @@ div.slideshow {
 }
 
 div.slideshow img {
-  width:380px;
   position:absolute;
 }
 
@@ -235,15 +208,15 @@ div.slideshow img {
   visibility: hidden;
 }
 
-/*Frontpage slideshow */
+/* FRONTPAGE SLIDESHOW */
 
 div.slideshow.frontpage img {
-  width:940px;
   min-height:402px;
+  min-width:100%;
 }
 
 div.slideshow.frontpage {
-  width:940px;
+  width:100%;
   height:402px;
 }
 
@@ -276,45 +249,62 @@ div.staticimg {
   float:left;
 }
 
-/* footer */
+/* FOOTER */
 
 #footer {
   border-top:1px solid #595A5B;
-  padding-top:15px;
-  padding-bottom:15px;
-  margin-top:20px;
   clear:both;
 }
 
-#right-credit {
-  float:right;
-  width:750px;
-  padding-bottom:50px;
-  text-align:right;
-}
-
-#left-credit {
-  float:left;
-  text-align:left;
-}
-
-#right-credit a:hover, #left-credit a:hover, .inline-a:hover {
+#footer div > a:hover, #footer div > a:hover, .inline-a:hover {
   color:#FDFCD9;
 }
 
-#left-credit.bottom-credit {
-  margin-top:12px;
-  margin-bottom:12px;
+#footer > div {
+    text-align:center;
+    display:inline-block;
+    padding-right:20px;
+    padding-left:20px;
+}
+
+/* SOCIAL */
+
+#footer ul {
+      text-align:center;
+      padding:0;
+}
+
+#footer li {
+    display:inline-block;
+    text-align:center;
+    padding-bottom:20px;
+}
+
+#footer div > p {
+    margin-bottom:10px;
+}
+
+#footer div {
+    width:300px;
+}
+
+#footer .social ul {
+    padding:0;
+    margin:0;
+}
+
+#footer .social {
+  display: inline-block;
+}
+
+#footer .social li{
+  list-style-type:none;
+  display:inline;
 }
 
 .featurelink {
   color:#FDFCD9;
 }
-
-/*.scroll {
-  overflow:scroll;
-  height:480px;
-}*/
 
 .med-left-img {
   width:300px;
@@ -331,7 +321,7 @@ div.staticimg {
   padding-top:28px;
 }
 
-/*Address and hours */
+/* ADDRESS AND HOURS */
 #address {
   float:left;
   padding-right:150px;
@@ -346,7 +336,7 @@ div.staticimg {
   margin-bottom:12px;
 }
 
-/* photo captions */
+/* PHOTO CAPTIONS */
 .slideshow-text {
   font-family: 'TradeGothicLTCom-BdCn20', sans-serif;
   color:#FDFCD9;
