@@ -94,63 +94,25 @@ moment.fn.toJuliaStringWithTime = function() {
   return str;
 }
 
-function GCalEvents(calendar_json_url) {
+function GCalEvents() {
+  // fetch events
+  var url = "https://www.googleapis.com/calendar/v3/calendars/hkos1qnhl9mnmilvsct725ft1s%40group.calendar.google.com/events?maxResults=100&orderBy=startTime&singleEvents=true&timeZone=America%2FLos_Angeles&fields=items(description%2Cend%2Cstart%2Csummary)&key=AIzaSyCyjzFnR36sWh2Y8HPvkAULSFtIsgbLXxE";
+  var startOfToday = moment().startOf("day").format();
+  var twoMonths = moment.duration(2, "months");
+  var twoMonthsLater = moment().add(twoMonths).format();
+  var calendar_json_url = url +   "&timeMin=" + encodeURIComponent(startOfToday) +
+                                  "&timeMax=" + encodeURIComponent(twoMonthsLater);
   // get list of upcoming events
   return $.getJSON(calendar_json_url).then(function(data) {
-    // Use the default timezone for the calendar for display
-    var timezone = data.feed.gCal$timezone.value;
-    
-    // Distill events down to the information we care about
-    var events = new Array();
-    $.each(data.feed.entry, function(i, item) {
-      var ev = {};
-      ev.title = $('<div/>').html(item.title.$t).text();
-      
-      // On the basic calendar, the start time is inside the content (??)
-      // but we can extract it
-      var descidx = item.content.$t.search("Description: ");
-      if (descidx === -1)
-        ev.content = "";
-      else {
-        ev.content = $('<div/>').html(
-          item.content.$t.substr(descidx + "Description: ".length)).text();
+    var events = data.items.map(function (entry) {
+      return {
+        title: entry.summary,
+        content: entry.description || "",
+        date: moment(entry.start.dateTime),
+        isAllDay: false // TODO
       }
-      
-      var when = item.content.$t.substr("When: ".length,
-        item.content.$t.search("<") - "When: ".length);
-      
-      // Lop off the day of the week, since it can't be parsed by moment.js
-      when = when.substr(when.search(" ") + 1);
-      
-      // First try to parse with a time, if not, parse with just a date
-      ev.date = moment(when, "MMM D YYYY Ha");
-      if (ev.date.isValid())
-      {
-        ev.isAllDay = false;
-      } else {
-        ev.date = moment(when, "MMM D YYYY");
-        ev.isAllDay = true;
-      }
-      
-      // Treat the date as if it were in the calendar's default timezone 
-      //ev.date = moment(ev.date).tz(timezone);
-      
-      events.push(ev);
     });
-  
-    // Sort events by date, ascending
-    events.sort(function (a, b) {
-      return b.date < a.date ? 1 : -1;
-    });
-  
-    // Filter out any events that precede today
-    var today = moment().startOf('day');
-    
-    var upcoming = $.grep(events, function(event, i) {
-      return event.date.isAfter(today) || event.date.isSame(today);
-    });
-    
-    return upcoming;
+    return events;
   });
 }
   
