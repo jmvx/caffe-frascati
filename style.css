@@ -9,8 +9,6 @@ body {
   font-family: 'Montserrat', sans-serif;
 }
 
-
-
 a {
   text-decoration:none;
   color:#C41130;
@@ -273,17 +271,17 @@ div.staticimg {
     .slideshow-text {
         width:95%;
     }
-    
+
     div.slideshow img {
         min-width:0px;
         max-width:100%;
     }
-    
+
     div.slideshow.frontpage img {
         min-height:402px;
         max-width:none;
     }
-    
+
     div.slideshow, div.slideshow.frontpage {
         width:100%;
         height:402px;
