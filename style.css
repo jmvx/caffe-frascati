@@ -448,6 +448,9 @@ div.staticimg {
     .med-left-img {
       width: 100%;
     }
+    .med-right-img {
+      width: 98%;
+    }
 
     .left-img, .right-img, .med-left-img {
         width: 98% !important;
