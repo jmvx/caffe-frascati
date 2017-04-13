@@ -120,7 +120,6 @@ hr {
 #gcal-events {
   margin-top:12px;
   max-width:540px;
-  float:left;
   overflow-y:scroll;
   height:470px;
 }
@@ -274,7 +273,7 @@ div.staticimg {
   font-size:18pt;
   padding:12px;
   background-color: rgba(0, 0, 0, 0.6); /* for overlay */
-  width:380px;
+  width:446px;
   -webkit-font-smoothing: subpixel-antialiased
 }
 
@@ -455,5 +454,10 @@ div.staticimg {
     .left-img, .right-img, .med-left-img {
         width: 98% !important;
         clear: both !important;
+    }
+
+    #gcal-events {
+      margin-top:430px;
+      clear:both;
     }
 }
